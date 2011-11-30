@@ -1,0 +1,45 @@
+# These are the files needed for jquery-ui-datacomplete
+
+cat                               \
+      jquery.ui.core.js           \
+      jquery.ui.widget.js         \
+      jquery.ui.position.js       \
+      jquery.ui.menu.js           \
+      jquery.ui.autocomplete.js   \
+    > jquery-ui.1.9.pre.js
+
+exit
+
+jquery-ui.1.9.pre.js
+jquery.effects.blind.js
+jquery.effects.bounce.js
+jquery.effects.clip.js
+jquery.effects.core.js
+jquery.effects.drop.js
+jquery.effects.explode.js
+jquery.effects.fade.js
+jquery.effects.fold.js
+jquery.effects.highlight.js
+jquery.effects.pulsate.js
+jquery.effects.scale.js
+jquery.effects.shake.js
+jquery.effects.slide.js
+jquery.effects.transfer.js
+jquery.ui.accordion.js
+jquery.ui.button.js
+jquery.ui.datepicker.js
+jquery.ui.dialog.js
+jquery.ui.draggable.js
+jquery.ui.droppable.js
+jquery.ui.menubar.js
+jquery.ui.mouse.js
+jquery.ui.popup.js
+jquery.ui.progressbar.js
+jquery.ui.resizable.js
+jquery.ui.selectable.js
+jquery.ui.slider.js
+jquery.ui.sortable.js
+jquery.ui.spinner.js
+jquery.ui.tabs.js
+jquery.ui.tooltip.js
+
