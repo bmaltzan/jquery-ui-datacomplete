@@ -1,1 +1,247 @@
-My GitHub Page
+---
+layout: default
+title: Datacomplete
+---
+
+<h1>Datacomplete
+  <div class="subtitle">A jQuery Autocomplete Extension</div>
+</h1>
+
+<p>This is useful for using (but hiding) primary keys. It will send and receive additional data from the server.</p>
+
+<h2>Source Code</h2>
+<p>Can be found on <a href="https://github.com/bmaltzan/jquery-ui-datacomplete">GitHub</a>.</p>
+
+<h2>Dependencies</h2>
+<p>jQueryUI has a bug</p>
+
+<h2>Compatibility</h2>
+Seems to work on these, maybe more:
+<ul>
+  <li>osx-firefox8</li>
+  <li>osx-safari</li>
+  <li>osx-opera</li>
+  <li>win7-ie9</li>
+  <li>ios5-ipad 1,2</li>
+  <li>ios5-ipod touch</li>
+  <li></li>
+</ul>
+<p>The scrollbar on ios is not visible, but a 1 or 2 finger drag will scroll.</p>
+
+<h2>  
+  Options
+  <div class="subtitle">jQuery UI <a href="http://docs.jquery.com/UI/Autocomplete#options">Autocomplete Options</a>.</div>
+</h2>
+
+<ul>
+  <li>
+    <h3>extraData</h3>
+    <div>For example: <code>extraData : [ { ws:'primary_key_id', dom:'primary_key_id' } ]</code></div>
+    <p>This is an array of hashes.
+      Each hash should contain two keys: "ws" and "dom". Ws refers to a key in the webservice list,
+      and dom is the id of an element in the web page. When the user selects a value from the dropdown,
+      if there is a value from the server in "ws", it will be set as the value of the webpage element
+      with the id in "dom".
+    </p>
+    <p>For this example, 'primary_key_id' could be the id of a hidden input, and the key within the json data.
+      The value appears to be repeated here- this allows the same web service can be used for multiple autocompletes in a page.
+    </p>
+</p>
+  </li>
+  <li>
+    <h3>extraParams</h3>
+    <div>For example: <code>extraParams : { type:'taxon-search-type' }</code></div>
+        <p>This is a hash. 
+      The keys and values will be appended to the url as parameter name and values.
+      If the value is null, the key will be used to get the element with that id on the page,
+      and it's value will be appended as the url parameter.
+    </p>
+  </li>
+  <li>
+    <h3>submitForm</h3>
+    <div>For example: <code>submitForm : "search_form"</code></div>
+    <p>Set this to the id of a form, without the "#". When a value is selected, the form will be submitted.</p>
+  </li>
+  <li>
+    <h3>columns</h3>
+    <div>For example: <code>columns : [ { "audio" : "Audio" }, { "video" : "Video" }, { "species" : "Species" } ]</code></div>
+    <p>This displays data within the autocomplete suggestions, as columns.
+      The key should be a json key within the list of suggestions returned by the server.
+      The value will be used as a header, within the dropdown.
+    </p>
+  </li>
+</ul>
+
+
+<h2>Examples</h2>
+
+<ol>
+  <li class="example">
+    <h3>
+      Autocomplete Default Functionality
+      <div class="subtitle">Demo duplicated from: <a href="http://jqueryui.com/demos/autocomplete/default.html">jqueryui.com</a></div>
+    </h3>
+
+    <div class="ui-widget">
+      <label for="tags">Tags: </label>
+      <input id="tags" />
+    </div>
+
+    <script type='text/javascript'>
+      //<![CDATA[
+        $(function() {
+          var availableTags = [
+            "ActionScript",
+            "AppleScript",
+            "Asp",
+            "BASIC",
+            "C",
+            "C++",
+            "Clojure",
+            "COBOL",
+            "ColdFusion",
+            "Erlang",
+            "Fortran",
+            "Groovy",
+            "Haskell",
+            "Java",
+            "JavaScript",
+            "Lisp",
+            "Perl",
+            "PHP",
+            "Python",
+            "Ruby",
+            "Scala",
+            "Scheme"
+          ];
+          $( "#tags" ).autocomplete({
+            source: availableTags
+          });
+        });
+      //]]>
+    </script>
+  </li>
+
+
+  <li class="example">
+    <h3>Datacomplete Default Functionality</h3>
+
+    <ul>
+      <li>The minLength is changed from 1 to 0. 
+          Currently this is only triggered by typing a letter, then backspacing. 
+          A future enhancement would be to trigger suggestions on double click.</li>
+      <li>The scrollheight is changed from 200 to 400.</li>
+      <li>The dropdown box's position is changed from left justified to right justified.</li>
+    </ul>
+
+    <br/>
+
+    <div class="ui-widget">
+      <label for="dc-tags">Tags: </label>
+      <input id="dc-tags" />
+    </div>
+
+    <script type='text/javascript'>
+      //<![CDATA[
+        $(function() {
+          var availableTags = [
+            "ActionScript",
+            "AppleScript",
+            "Asp",
+            "BASIC",
+            "C",
+            "C++",
+            "Clojure",
+            "COBOL",
+            "ColdFusion",
+            "Erlang",
+            "Fortran",
+            "Groovy",
+            "Haskell",
+            "Java",
+            "JavaScript",
+            "Lisp",
+            "Perl",
+            "PHP",
+            "Python",
+            "Ruby",
+            "Scala",
+            "Scheme"
+          ];
+          $( "#dc-tags" ).datacomplete({
+            source: availableTags
+          });
+        });
+      //]]>
+    </script>
+  </li>
+
+</ol>
+
+<p>The remaining examples will test using the database,
+  so must run on the same server, per the
+  <a href="http://en.wikipedia.org/wiki/Same_origin_policy">same origin policy</a>.
+</p>
+
+<ol>
+
+
+  <li class="example">
+    <h3>Storing Additional Data, Such as Primary Key</h3>
+
+    <div class="ui-widget">
+      <label for="taxon">Behavior (call, song, fly, swim):</label>
+      <input id="taxon">
+      <input id="taxon_id" value="initial" type="text">
+    </div>
+
+
+    <script type="text/javascript">
+      //<![CDATA[
+        $(function() {
+          var t = $( "#taxon" );
+          if ( t.length > 0 ) {
+            t.datacomplete({
+              source      : "card.json",
+              extraData   : [ { ws:'taxon_id',     dom:'taxon_id' } ],
+              extraParams : { type:'taxon' }
+            });
+          }
+        });
+      //]]>
+    </script>
+  </li>
+
+
+
+  <li class="example">
+    <h3>Submitting a Form, on Selecting a Suggestion</h3>
+
+  </li>
+
+
+
+  <li class="example">
+    <h3>Displaying Columns in the Autocomplete Suggestions</h3>
+
+  </li>
+
+
+
+  <li class="example">
+    <h3>Sending Additional Data</h3>
+
+
+
+
+  <li class="example">
+    <h3>A Search From in Production</h3>
+    <a href="http://macaulaylibrary.org">Macaulay Library</a>
+
+
+
+  </li>
+
+
+</ul>
+
