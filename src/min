@@ -5,7 +5,7 @@ if [ "$1" == "cat" ]; then
   cat                                                              \
       jquery.1.6.4.js                                              \
       jquery-ui.1.9.pre.js                                         \
-      jquery-ui-datacomplete.js                                    \
+      jquery-ui-datacomplete.0.9.0.js                              \
     > min.js
 
 else
@@ -13,12 +13,12 @@ else
   java -jar ~/bin/compiler.jar                                     \
        --js=jquery.1.6.4.js                                        \
        --js=jquery-ui.1.9.pre.js                                   \
-       --js=jquery-ui-datacomplete.js                              \
+       --js=jquery-ui-datacomplete.0.9.0.js                        \
        --js_output_file=min.js
 
   java -jar ~/bin/compiler.jar                                     \
-       --js=jquery-ui-datacomplete.js                              \
-       --js_output_file=jquery-ui-datacomplete.min.0.9.0.js
+       --js=jquery-ui-datacomplete.0.9.0.js                        \
+       --js_output_file=jquery-ui-datacomplete.0.9.0.min.js
 
 fi
 

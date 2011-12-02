@@ -14,10 +14,6 @@ $.widget( "ui.datacomplete", $.ui.autocomplete, {
     autoFocus     : true,
     minLength     : 0,
     scrollHeight  : 400,
-    position      : { my        : "right top",
-                      at        : "right bottom",
-                      collision : "none"
-                    },
     extraData     : null,
     columns       : null,
     submitForm    : false,
@@ -92,7 +88,7 @@ $.widget( "ui.datacomplete", $.ui.autocomplete, {
         self.xhr = $.ajax({
           url: url,
           data: request,
-          dataType: "json",
+          dataType: "jsonp",
           autocompleteRequest: ++requestIndex,
           success: function( data, status ) {
             if ( this.autocompleteRequest === requestIndex ) {
