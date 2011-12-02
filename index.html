@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Datacomplete
+title: Datacomplete Hompage
 ---
 
 <h1>Datacomplete
@@ -8,20 +8,34 @@ title: Datacomplete
 </h1>
 
 <p>
-  This is useful when working with primary keys and autocomplete inputs. 
-  It will send and receive additional data from the server.
+  This extension helps when working you need to track primary keys along with the user input. 
+  <br/>
+  It moves additional data between the server and webpage.
+  <br/>
+  This is beta software. It works for me, and I'm using it in production.
 </p>
 
 <div style='float:right'>
   <img src='static/screenshot.png' />
 </div>
 
-
-<h2>Source Code</h2>
-<p>Can be found on <a href="https://github.com/bmaltzan/jquery-ui-datacomplete">GitHub</a>.</p>
-
 <h2>Dependencies</h2>
-<p>jQueryUI has a bug</p>
+<p>I'm using jQuery 1.6. Other versions should work.</p>
+<p>jQuery UI 1.9pre or greater. 
+  If you want to use 1.8, you will need to apply this <a href="http://bugs.jqueryui.com/ticket/7555">patch</a>.
+</p>
+
+
+<h2>Download</h2>
+<p>The source can be found on <a href="https://github.com/bmaltzan/jquery-ui-datacomplete">GitHub</a>.</p>
+<p>
+  Latest: 
+  <a href="https://raw.github.com/bmaltzan/jquery-ui-datacomplete/master/src/jquery-ui-datacomplete.0.9.0.js">jquery-ui-datacomplete.0.9.0.js</a>
+  <br/>
+  Minified:
+  <a href="https://raw.github.com/bmaltzan/jquery-ui-datacomplete/master/src/jquery-ui-datacomplete.0.9.0.min.js">jquery-ui-datacomplete.0.9.0.min.js</a>
+</p>
+
 
 <h2>Compatibility</h2>
 Seems to work on these, maybe more:
@@ -35,6 +49,23 @@ Seems to work on these, maybe more:
   <li></li>
 </ul>
 <p>The scrollbar on ios is not visible, but a 1 or 2 finger drag will scroll.</p>
+
+
+<h2>Alternate Solutions</h2>
+<ul>
+  <li>
+    In a second autocomplete input box, fontzter shows how to 
+    <a href="https://forum.jquery.com/topic/autocomplete-question">override it's source method</a>, 
+    when the first autocomplete's suggestion is selected.</li>
+  </li>
+
+  <li>This is unsupported now: the previous version of this tool was an extension of
+    <a href="http://bassistance.de/jquery-plugins/jquery-plugin-autocomplete/">jquery-plugin-autocomplete</a>.
+    It used xml, and is included on github as
+    <a href="https://raw.github.com/bmaltzan/jquery-ui-datacomplete/master/src/jquery-ui-datacomplete.0.9.0.js">jquery-autocomplete-xml.js</a>.
+  </li>
+</ul>
+
 
 <h2>  
   Options
@@ -81,7 +112,7 @@ Seems to work on these, maybe more:
 </ul>
 
 
-<h2>Examples</h2>
+<h2>Examples Using Arrays of Data</h2>
 
 <ol>
   <li class="example">
@@ -184,55 +215,92 @@ Seems to work on these, maybe more:
     </script>
   </li>
 
-</ol>
-
-<p>The remaining examples will test using the database,
-  so must run on the same server, per the
-  <a href="http://en.wikipedia.org/wiki/Same_origin_policy">same origin policy</a>.
-</p>
-
-<ol>
-
 
   <li class="example">
-    <h3>Storing Additional Data, Such as Primary Key</h3>
+    <h3>Submitting a Form, on Selecting a Suggestion</h3>
+
+    <ul>
+      <li>This submits your term to google search.</li>
+      <li>submitForm : "web-search"</li>
+    </ul>
+
+    <br/>
 
     <div class="ui-widget">
-      <label for="taxon">Behavior (call, song, fly, swim):</label>
-      <input id="taxon">
-      <input id="taxon_id" value="initial" type="text">
+      <form method="POST" id="web-search" action="http://www.scroogle.org/cgi-bin/nbbw.cgi">
+      <label for="search-tags">Web Search:</label>
+      <input id="search-tags" name="Gw" size="15" maxlength="225" type="TEXT">
+      <br>
+      <input name="n" value="2" type="RADIO">20
+      <input name="n" value="5" type="RADIO">50
+      <input name="n" value="1" checked="checked" type="RADIO">100
+      </form>
     </div>
 
-
-    <script type="text/javascript">
+    <script type='text/javascript'>
       //<![CDATA[
         $(function() {
-          var t = $( "#taxon" );
-          if ( t.length > 0 ) {
-            t.datacomplete({
-              source      : "card.json",
-              extraData   : [ { ws:'taxon_id',     dom:'taxon_id' } ],
-              extraParams : { type:'taxon' }
-            });
-          }
+          var availableTags = [
+            "ActionScript",
+            "AppleScript",
+            "Asp",
+            "BASIC",
+            "C",
+            "C++",
+            "Clojure",
+            "COBOL",
+            "ColdFusion",
+            "Erlang",
+            "Fortran",
+            "Groovy",
+            "Haskell",
+            "Java",
+            "JavaScript",
+            "Lisp",
+            "Perl",
+            "PHP",
+            "Python",
+            "Ruby",
+            "Scala",
+            "Scheme"
+          ];
+          $( "#search-tags" ).datacomplete({
+            source: availableTags,
+            submitForm: "web-search"
+          });
         });
       //]]>
     </script>
   </li>
 
 
+
+
+</ol>
+
+
+<h2>Examples Using Webservice Data</h2>
+<p>These will not run if you download them. They must run on the server.
+  (<a href="http://en.wikipedia.org/wiki/Same_origin_policy">same origin policy</a>)
+</p>
+
+<ol>
+
   <li class="example">
-    <h3>Submitting a Form, on Selecting a Suggestion</h3>
+    <h3>Receiving Additional Data, Such as Primary Key</h3>
+    <p><a href="http://macaulaylibrary.org/labs/demos/datacomplete-pk">datacomplete-receiving</a></p>
   </li>
 
+<!--
+  <li class="example">
+    <h3>Sending Additional Data</h3>
+    <p><a href="http://macaulaylibrary.org/labs/demos/datacomplete-columns">datacomplete-sending</a></p>
+  </li>
+-->
 
   <li class="example">
     <h3>Displaying Columns in the Autocomplete Suggestions</h3>
-  </li>
-
-
-  <li class="example">
-    <h3>Sending Additional Data</h3>
+    <p><a href="http://macaulaylibrary.org/labs/demos/datacomplete-columns">datacomplete-columns</a></p>
   </li>
 
 
@@ -241,6 +309,5 @@ Seems to work on these, maybe more:
     <a href="http://macaulaylibrary.org">Macaulay Library</a>
   </li>
 
-
-</ul>
+</ol>
 
