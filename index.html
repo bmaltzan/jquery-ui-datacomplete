@@ -7,22 +7,18 @@ title: Datacomplete Hompage
   <div class="subtitle">A jQuery Autocomplete Extension</div>
 </h1>
 
-<p>
-  This extension helps when working you need to track primary keys along with the user input. 
-  <br/>
-  It moves additional data between the server and webpage.
-  <br/>
-  This is beta software. It works for me, and I'm using it in production.
-</p>
-
-<div style='float:right'>
+<div>
   <img src='static/screenshot.png' />
 </div>
 
-<h2>Dependencies</h2>
-<p>I'm using jQuery 1.6. Other versions should work.</p>
-<p>jQuery UI 1.9pre or greater. 
-  If you want to use 1.8, you will need to apply this <a href="http://bugs.jqueryui.com/ticket/7555">patch</a>.
+
+<h2>Overview</h2>
+<p>
+  This extension moves additional data between the server and webpage.
+  <br/>
+  It helps when you need to track primary keys along with the user's input. 
+  <br/>
+  This is beta software. It works for me, and I'm using it in production.
 </p>
 
 
@@ -35,6 +31,23 @@ title: Datacomplete Hompage
   Minified:
   <a href="https://raw.github.com/bmaltzan/jquery-ui-datacomplete/master/src/jquery-ui-datacomplete.0.9.0.min.js">jquery-ui-datacomplete.0.9.0.min.js</a>
 </p>
+
+
+<h2>Dependencies</h2>
+<ul>
+  <li>UI Core</li>
+  <li>UI Widget</li>
+  <li>UI Position</li>
+  <li>UI Menu</li>
+  <li>UI Autocomplete</li>
+</ul>
+<ul>
+  <li>I'm using jQuery 1.6. Other versions should work.</li>
+  <li>
+    Use jQuery UI 1.9pre or greater. 
+    <br/>(jQuery UI 1.8 will work with this <a href="http://bugs.jqueryui.com/ticket/7555">patch</a>.)
+  </li>
+</ul>
 
 
 <h2>Compatibility</h2>
@@ -54,22 +67,26 @@ Seems to work on these, maybe more:
 <h2>Alternate Solutions</h2>
 <ul>
   <li>
-    In a second autocomplete input box, fontzter shows how to 
-    <a href="https://forum.jquery.com/topic/autocomplete-question">override it's source method</a>, 
-    when the first autocomplete's suggestion is selected.</li>
+    Fontzter shows how to 
+    <a href="https://forum.jquery.com/topic/autocomplete-question">override the source method</a>, 
+    for one of two autocomplete input elements on a page.</li>
   </li>
 
-  <li>This is unsupported now: the previous version of this tool was an extension of
+  <li>
+    <a href="https://raw.github.com/bmaltzan/jquery-ui-datacomplete/master/src/jquery-autocomplete-xml.js">jquery-autocomplete-xml.js</a>
+    This is the previous version of this tool.
+    It was an extension of the bassistance
     <a href="http://bassistance.de/jquery-plugins/jquery-plugin-autocomplete/">jquery-plugin-autocomplete</a>.
-    It used xml, and is included on github as
-    <a href="https://raw.github.com/bmaltzan/jquery-ui-datacomplete/master/src/jquery-ui-datacomplete.0.9.0.js">jquery-autocomplete-xml.js</a>.
+    It was modified to use xml only.
   </li>
 </ul>
 
 
 <h2>  
   Options
-  <div class="subtitle">jQuery UI <a href="http://docs.jquery.com/UI/Autocomplete#options">Autocomplete Options</a>.</div>
+  <div class="subtitle">Options inherited from 
+    <a href="http://docs.jquery.com/UI/Autocomplete#options">jQuery UI Autocomplete Options</a>.
+  </div>
 </h2>
 
 <ul>
@@ -110,6 +127,11 @@ Seems to work on these, maybe more:
     </p>
   </li>
 </ul>
+
+<h2>Theming</h2>
+
+<p>todo.
+</p>
 
 
 <h2>Examples Using Arrays of Data</h2>
