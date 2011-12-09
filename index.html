@@ -42,7 +42,7 @@ title: Datacomplete Hompage
   <li>UI Autocomplete</li>
 </ul>
 <ul>
-  <li>I'm using jQuery 1.6. Other versions should work.</li>
+  <li>jQuery 1.6+. Earlier versions may work, I haven't tried.</li>
   <li>
     Use jQuery UI 1.9pre or greater. 
     <br/>(jQuery UI 1.8 will work with this <a href="http://bugs.jqueryui.com/ticket/7555">patch</a>.)
@@ -51,35 +51,26 @@ title: Datacomplete Hompage
 
 
 <h2>Compatibility</h2>
-Seems to work on these, maybe more:
+It probably works wherever Autocomplete works.
+<br/>
+I'm currently testing my changes with these:
 <ul>
-  <li>osx-firefox8</li>
-  <li>osx-safari</li>
-  <li>osx-opera</li>
+  <li>jQuery 1.7.1</li>
+  <li>jQuery UI head on 2011-12-09</li>
+</ul>
+<ul>
+  <li>osx-firefox 8.0.1</li>
+  <li>osx-safari 5.1.1</li>
+  <li>osx-opera 11.52</li>
+  <li>osx-chrome 15.0.874.121</li>
   <li>win7-ie9</li>
-  <li>ios5-ipad 1,2</li>
+  <li>ios5-ipad 2</li>
   <li>ios5-ipod touch</li>
   <li></li>
 </ul>
 <p>The scrollbar on ios is not visible, but a 1 or 2 finger drag will scroll.</p>
 
 
-<h2>Alternate Solutions</h2>
-<ul>
-  <li>
-    Fontzter shows how to 
-    <a href="https://forum.jquery.com/topic/autocomplete-question">override the source method</a>, 
-    for one of two autocomplete input elements on a page.</li>
-  </li>
-
-  <li>
-    <a href="https://raw.github.com/bmaltzan/jquery-ui-datacomplete/master/src/jquery-autocomplete-xml.js">jquery-autocomplete-xml.js</a>
-    This is the previous version of this tool.
-    It was an extension of the bassistance
-    <a href="http://bassistance.de/jquery-plugins/jquery-plugin-autocomplete/">jquery-plugin-autocomplete</a>.
-    It was modified to use xml only.
-  </li>
-</ul>
 
 
 <h2>  
@@ -127,12 +118,6 @@ Seems to work on these, maybe more:
     </p>
   </li>
 </ul>
-
-<h2>Theming</h2>
-
-<p>todo.
-</p>
-
 
 <h2>Examples Using Arrays of Data</h2>
 
@@ -302,7 +287,7 @@ Seems to work on these, maybe more:
 
 
 <h2>Examples Using Webservice Data</h2>
-<p>These will not run if you download them. They must run on the server.
+<p>These will not run, if you download and try to use the same webservice in the examples.
   (<a href="http://en.wikipedia.org/wiki/Same_origin_policy">same origin policy</a>)
 </p>
 
@@ -332,4 +317,33 @@ Seems to work on these, maybe more:
   </li>
 
 </ol>
+
+
+
+<h2>Theming</h2>
+
+<p>todo.
+</p>
+
+
+
+
+<h2>Alternate Solutions</h2>
+<ul>
+  <li>
+    Fontzter shows how to 
+    <a href="https://forum.jquery.com/topic/autocomplete-question">override the source method</a>, 
+    for one of two autocomplete input elements on a page.</li>
+  </li>
+
+  <li>
+    <a href="https://raw.github.com/bmaltzan/jquery-ui-datacomplete/master/src/jquery-autocomplete-xml.js">jquery-autocomplete-xml.js</a>
+    This is the previous version of this tool.
+    It was an extension of the bassistance
+    <a href="http://bassistance.de/jquery-plugins/jquery-plugin-autocomplete/">jquery-plugin-autocomplete</a>.
+    It was modified to use xml only.
+  </li>
+</ul>
+
+
 
