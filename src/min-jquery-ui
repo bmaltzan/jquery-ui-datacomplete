@@ -6,11 +6,10 @@ cat                               \
       jquery.ui.position.js       \
       jquery.ui.menu.js           \
       jquery.ui.autocomplete.js   \
-    > jquery-ui.1.9.pre.js
+    > jquery-ui.2011.12.9.js
 
 exit
 
-jquery-ui.1.9.pre.js
 jquery.effects.blind.js
 jquery.effects.bounce.js
 jquery.effects.clip.js
