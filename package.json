@@ -1,0 +1,35 @@
+{
+    "name": "datacomplete",
+    "version": "0.9.0",
+    "title": "Datacomplete",
+    "author": {
+        "name": "Brian Maltzan",
+        "url": "https://bmaltzan.github.com"
+    },
+    "licenses": [
+        {
+            "type": "MIT",
+            "url": "MIT-LICENSE.txt"
+        },
+        {
+            "type": "GPL",
+            "url": "GPL-LICENSE.txt"
+        }
+    ],
+    "dependencies": {
+        "jquery": "1.6",
+        "jquery-ui": "1.9pre"
+    },
+    "description": "This extension moves additional data between the server and webpage. It helps when you need to track primary keys along with the user's input.",
+    "keywords": [
+        "autocomplete",
+        "datacomplete"
+    ],
+    "homepage": "http://bmaltzan.github.com/jquery-ui-datacomplete/",
+    "contributors": [],
+    "files": [
+        "src/jquery-ui-datacomplete.0.9.0.min.js"
+    ]
+}
+
+
